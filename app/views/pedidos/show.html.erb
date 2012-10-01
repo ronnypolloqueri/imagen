@@ -1,0 +1,49 @@
+<% if(notice) %>
+<div class="alert alert-success">
+  <%= notice %>
+</div>
+<% end %>
+<div class="hero-unit">
+<p>
+  <b>Cídigo del cliente: #</b><%= @pedido.cliente.id %>
+</p>
+<p>
+  <b>Cliente:</b>
+  <%= @pedido.cliente.nombres %>
+  <%= @pedido.cliente.apellido_paterno %>
+  <%= @pedido.cliente.apellido_materno %>
+</p>
+<p>
+  <b>Fecha pedido:</b>
+  <%= @pedido.fecha_pedido %>
+</p>
+</div>
+
+<div class="hero-unit">
+<% @pedido.productos.each do |detalle| %>
+	
+<% end %>
+</div>
+
+<div class="hero-unit">
+  <h1><%= @catalogo.titulo_catalogo %></h1>
+</div>
+<ul class="thumbnails">
+<% @catalogos.each do |catalogo| %>
+  <li class="span6">
+    <div class="thumbnail">
+      <%= image_tag catalogo.producto.image_url(:thumb).to_s, class:'img-rounded' %>
+      <div class="caption">
+        <h3><%= catalogo.producto.nombre %></h3>
+        <p>Código: #<%= catalogo.producto.id %></p>        
+        <p>Precio S/. <%= catalogo.producto.precio_venta %></p>
+        <p>Al por mayor S/. <%= catalogo.producto.precio_mayor %></p>        
+        <p>Talla: <%= catalogo.producto.talla %></p>
+        <p>
+          <%= link_to "Pedir", { :controller => "lineadepedidos", :action => "agregar_pedido", :pedido_id => @pedido.id, :producto_id => catalogo.producto.id }, :class => 'btn btn-inverse' %>
+        </p>
+      </div>
+    </div>
+  </li>
+<% end %>
+</ul>

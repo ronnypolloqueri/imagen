@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Ignite S.A.C.</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+  <style type="text/css" media="print">
+    @media print {
+      #banner {display:none;}
+      #menu {display:none;}
+      #acciones {display:none;}
+      #botones {display:none;}
+      #sub_titulo {display:none;}
+    }
+</style>
+</head>
+<body>
+<div class="container">  
+      <div id="banner" class="logo-unit">
+          <h1>Ignite <small>S.A.C.</small></h1>
+      </div>
+      <div id="menu" class="navbar">
+        <div class="navbar-inner">
+          <ul class="nav">
+            <li><%= link_to "Fabricantes", fabricas_path %></li>
+            <li><%= link_to "Catalogos", catalogos_path %></li>
+            <li><%= link_to "Clientes", clientes_path %></li>
+            <li><%= link_to "Pedidos", pedidos_path %></li>
+            <li><%= link_to "Docentes", docentes_path %></li>            
+            
+          </ul>
+        </div>
+      </div>      
+      <%= yield %>
+  <hr/>
+  <footer>
+    <p>
+      Copyright IGNITE S.A.C. &copy; 2012
+    </p>
+  </footer>
+</div>
+</body>
+</html>
+

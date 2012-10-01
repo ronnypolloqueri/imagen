@@ -1,0 +1,37 @@
+<% if(notice) %>
+<div class="alert alert-success">
+  <%= notice %>
+</div>
+<% end %>
+<div class="hero-unit">
+<p>
+  <b>Nombres:</b>
+  <%= @cliente.nombres %>
+</p>
+<p>
+  <b>Apellido paterno:</b>
+  <%= @cliente.apellido_paterno %>
+</p>
+<p>
+  <b>Apellido materno:</b>
+  <%= @cliente.apellido_materno %>
+</p>
+<p>
+  <b>Teléfonos:</b>
+  <%= @cliente.telefonos %>
+</p>
+<p>
+  <b>Correo electrónico:</b>
+  <%= @cliente.correo_electronico %>
+</p>
+<p>
+  <b>Dirección:</b>
+  <%= @cliente.direccion %>
+</p>
+<div id="acciones">
+<p>
+  <%= link_to 'Editar', edit_cliente_path(@cliente), :class => 'btn btn-inverse' %>
+  <%= link_to 'Eliminar', @cliente, :class => 'btn',:method => :delete, data: { confirm: '¿Está seguro?' } %>
+</p>
+</div>
+</div>

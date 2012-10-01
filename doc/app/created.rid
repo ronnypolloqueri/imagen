@@ -1,0 +1,20 @@
+Wed, 29 Aug 2012 09:51:43 -0500
+doc/README_FOR_APP	Mon, 27 Aug 2012 02:26:46 -0500
+app/controllers/application_controller.rb	Mon, 27 Aug 2012 02:26:46 -0500
+app/controllers/catalogoproductos_controller.rb	Tue, 28 Aug 2012 23:43:51 -0500
+app/controllers/catalogos_controller.rb	Tue, 28 Aug 2012 22:18:36 -0500
+app/controllers/clientes_controller.rb	Wed, 29 Aug 2012 06:44:55 -0500
+app/controllers/fabricas_controller.rb	Tue, 28 Aug 2012 22:05:35 -0500
+app/controllers/productos_controller.rb	Tue, 28 Aug 2012 18:18:15 -0500
+app/helpers/application_helper.rb	Mon, 27 Aug 2012 02:26:46 -0500
+app/helpers/catalogoproductos_helper.rb	Tue, 28 Aug 2012 15:22:54 -0500
+app/helpers/catalogos_helper.rb	Mon, 27 Aug 2012 17:38:58 -0500
+app/helpers/clientes_helper.rb	Wed, 29 Aug 2012 06:18:34 -0500
+app/helpers/fabricas_helper.rb	Mon, 27 Aug 2012 02:53:41 -0500
+app/helpers/productos_helper.rb	Mon, 27 Aug 2012 05:08:25 -0500
+app/models/catalogo.rb	Tue, 28 Aug 2012 19:34:00 -0500
+app/models/catalogoproducto.rb	Tue, 28 Aug 2012 19:33:55 -0500
+app/models/cliente.rb	Wed, 29 Aug 2012 06:18:34 -0500
+app/models/fabrica.rb	Tue, 28 Aug 2012 19:30:39 -0500
+app/models/producto.rb	Wed, 29 Aug 2012 06:08:39 -0500
+app/uploaders/image_uploader.rb	Mon, 27 Aug 2012 18:48:26 -0500

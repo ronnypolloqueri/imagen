@@ -1,0 +1,83 @@
+<% if(params[:notice]) %>
+<div class="alert alert-success">
+  <%= params[:notice] %>
+</div>
+<% end %>
+<div class="hero-unit">
+<p>
+  <b>Razón social:</b>
+  <%= @fabrica.razon_social %>
+</p>
+<p>
+  <b>RUC:</b>
+  <%= @fabrica.ruc %>
+</p>
+<p>
+  <b>Nombre comercial:</b>
+  <%= @fabrica.nombre_comercial %>
+</p>
+<p>
+  <b>Dirección:</b>
+  <%= @fabrica.direccion %>
+</p>
+<p>
+  <b>Teléfono:</b>
+  <%= @fabrica.telefono %>
+</p>
+<p>
+  <b>Correo electrónico:</b>
+  <%= @fabrica.correo_electronico %>
+</p>
+<p>
+  <b>Representante:</b>
+  <%= @fabrica.representante %>
+</p>
+<div id="acciones">
+<p>
+  <%= link_to 'Editar', edit_fabrica_path(@fabrica), :class => 'btn btn-inverse' %>
+  <%= link_to 'Eliminar', @fabrica, :class => 'btn',:method => :delete, data: { confirm: '¿Está seguro?' } %>
+</p>
+</div>
+</div>
+<div id="sub_titulo" class="page-header">
+<h2>Productos</h2>
+</div>
+<div id="acciones">
+<ul class="pager">
+  <li class="previous">
+    <%= link_to 'Agregar producto', @fabrica, :class => 'btn' %>
+  </li>
+  <li class="next">
+    <%= link_to 'Lista de fabricantes', fabricas_path, :class => 'btn' %>
+  </li>
+</ul>
+</div>
+<ul class="thumbnails">
+<% @productos.each do |producto| %>
+  <li class="span6">
+    <div class="thumbnail">
+      <%= image_tag producto.image_url(:thumb).to_s, class:'img-rounded' %>
+      <div class="caption">
+        <h3><%= producto.nombre %></h3>
+        <p>Código: #<%= producto.id %></p>
+        <p>Costo S/. <%= producto.precio_unitario %></p>        
+        <p>Talla: <%= producto.talla %></p>                
+        <div id="botones">
+        <p>
+          <a href="#" class="btn">Detalle</a>
+          <%= link_to 'Eliminar', [producto.fabrica, producto],
+                 :confirm => 'Esta seguro?',
+                 :method => :delete,
+                 :class => 'btn btn-inverse'
+          %>
+        </p>
+        </div>
+      </div>
+    </div>
+  </li>
+<% end %>
+</ul>
+<div id="acciones">
+  <input type="button" value="Imprimir" onclick="javascript:window.print()" class="btn" />
+</div>
+

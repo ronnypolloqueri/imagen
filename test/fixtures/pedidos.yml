@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  fecha_pedido: 2012-08-29
+  cantidad: 1
+  precio_pedido: 1.5
+  cliente: 
+
+two:
+  fecha_pedido: 2012-08-29
+  cantidad: 1
+  precio_pedido: 1.5
+  cliente: 

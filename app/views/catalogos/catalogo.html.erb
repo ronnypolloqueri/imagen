@@ -1,0 +1,28 @@
+<div class="hero-unit">
+  <h1><%= @catalogo.titulo_catalogo %></h1>
+</div>
+<ul class="thumbnails">
+<% @catalogos.each do |catalogo| %>
+  <li class="span6">
+    <div class="thumbnail">
+      <%= image_tag catalogo.producto.image_url(:thumb).to_s, class:'img-rounded' %>
+      <div class="caption">
+        <h3><%= catalogo.producto.nombre %></h3>
+        <p>Código: #<%= catalogo.producto.id %></p>        
+        <p>Precio S/. <%= catalogo.producto.precio_venta %></p>
+        <p>Al por mayor S/. <%= catalogo.producto.precio_mayor %></p>        
+        <p>Talla: <%= catalogo.producto.talla %></p>
+        <div id="acciones">
+          <p>
+          </p>
+        </div>
+      </div>
+    </div>
+  </li>
+<% end %>
+</ul>
+<div id="acciones">
+<p>
+  <input type="button" value="Imprimir" onclick="javascript:window.print()" class="btn" />
+</p>
+</div>

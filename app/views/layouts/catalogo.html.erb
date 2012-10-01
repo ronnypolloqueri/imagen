@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Ignite S.A.C.</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+  <style type="text/css" media="print">
+    @media print {
+      #banner {display:none;}
+      #menu {display:none;}
+      #acciones {display:none;}
+      #botones {display:none;}
+      #sub_titulo {display:none;}
+    }
+</style>
+</head>
+<body>
+<div class="container">  
+  <%= yield %>
+  <hr/>
+  <footer>
+    <p>
+      Copyright IGNITE S.A.C. &copy; 2012
+    </p>
+  </footer>
+</div>
+</body>
+</html>
+

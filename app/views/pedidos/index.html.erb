@@ -1,0 +1,27 @@
+<div class="page-header">
+  <h2>Lista de pedidos</h2>
+</div>
+<table class="table">
+  <thead>  
+  <tr>
+    <th>Fecha pedido</th>
+    <th>Cantidad</th>
+    <th>Precio pedido</th>
+    <th>Cliente</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+  </thead>
+  <% @pedidos.each do |pedido| %>
+  <tr>
+    <td><%= pedido.fecha_pedido %></td>
+    <td><%= pedido.cantidad %></td>
+    <td><%= pedido.precio_pedido %></td>
+    <td><%= pedido.cliente.nombres %></td>
+    <td><%= link_to 'Productos', pedido %></td>
+    <td><%= link_to 'Eliminar', pedido, method: :delete, data: { confirm: '¿Está seguro?' } %></td>
+  </tr>
+<% end %>
+</table>
+<%= link_to 'Nuevo pedido', new_pedido_path, :class=>"btn btn-primary" %>

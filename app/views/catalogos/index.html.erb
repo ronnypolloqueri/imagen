@@ -1,0 +1,41 @@
+<div class="page-header">
+  <h2>Lista de catalogos</h2>
+</div>
+<table class="table">
+  <thead>
+  <tr>
+    <th>Título catalogo</th>
+    <th>Descripción</th>
+    <th>Fecha elaboración</th>
+    <th></th>
+  </tr>
+  </thead>
+  <% @catalogos.each do |catalogo| %>
+  <tr>
+    <td><%= catalogo.titulo_catalogo %></td>
+    <td><%= catalogo.descripcion %></td>
+    <td><%= catalogo.fecha_elaboracion %></td>
+    <td>
+      <div class="btn-group">
+        <button class="btn">Acciones</button>
+        <button class="btn btn-success dropdown-toggle" data-toggle="dropdown">
+        <span class="caret"></span>
+        </button>
+          <ul class="dropdown-menu">
+            <li>
+              <%= link_to 'Elaborar catalogo', catalogo%>
+            </li>
+            <li>
+              <%= link_to "Visualizar el catalogo", { :controller => "catalogos", :action => "catalogo", :id => catalogo.id } %>
+            </li>
+            <li>
+                <%= link_to 'Editar datos del catalogo', edit_catalogo_path(catalogo) %>
+            </li>
+          </ul>
+      </div> 
+    </td>       
+  </tr>
+  <% end %>
+</table>
+<%= link_to 'Agregar catalogo', new_catalogo_path, :class=>"btn btn-primary" %>
+

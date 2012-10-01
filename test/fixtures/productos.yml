@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  nombre: MyString
+  descripcion: MyText
+  color: MyString
+  genero: MyString
+  talla: MyString
+  precio_unitario: 1.5
+  image: MyString
+  fabrica: 
+
+two:
+  nombre: MyString
+  descripcion: MyText
+  color: MyString
+  genero: MyString
+  talla: MyString
+  precio_unitario: 1.5
+  image: MyString
+  fabrica: 

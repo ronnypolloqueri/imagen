@@ -1,0 +1,33 @@
+<%= form_for(@catalogo, :html => { :class => "form-horizontal"}) do |f| %>
+  <% if @catalogo.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@catalogo.errors.count, "error") %> prohibited this catalogo from being saved:</h2>
+      <ul>
+      <% @catalogo.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="control-group">
+    <%= f.label(:titulo_catalogo, 'Título', :class=>'control-label') %>
+    <div class="controls">
+      <%= f.text_field :titulo_catalogo, :class=>'input-xxlarge'%>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label(:descripcion, 'Descripción', :class=>'control-label') %>
+    <div class="controls">
+      <%= f.text_area :descripcion, :class=>'input-xxlarge', :rows => '3'%>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label(:fecha_elaboracion, 'Fecha de elaboración', :class=>'control-label') %>
+    <div class="controls">
+      <%= f.date_select :fecha_elaboracion %>
+    </div>
+  </div>  
+  <div class="form-actions">
+    <%= f.submit 'Guardar', :class=>'btn btn-primary' %>
+  </div>
+<% end %>

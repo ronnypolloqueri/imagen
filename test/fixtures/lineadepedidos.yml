@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  cantidad: 1
+  precio: 1.5
+  pedido: 
+  producto: 
+
+two:
+  cantidad: 1
+  precio: 1.5
+  pedido: 
+  producto: 

@@ -1,0 +1,100 @@
+<% if(params[:notice]) %>
+<div class="alert alert-error">
+  <%= params[:notice] %>
+</div>
+<% end %>
+<div class="hero-unit">
+<p>
+  <b>Razón social:</b>
+  <%= @fabrica.razon_social %>
+</p>
+<p>
+  <b>RUC:</b>
+  <%= @fabrica.ruc %>
+</p>
+<p>
+  <b>Nombre comercial:</b>
+  <%= @fabrica.nombre_comercial %>
+</p>
+<p>
+  <b>Dirección:</b>
+  <%= @fabrica.direccion %>
+</p>
+<p>
+  <b>Teléfono:</b>
+  <%= @fabrica.telefono %>
+</p>
+<p>
+  <b>Correo electrónico:</b>
+  <%= @fabrica.correo_electronico %>
+</p>
+<p>
+  <b>Representante:</b>
+  <%= @fabrica.representante %>
+</p>
+</div>
+
+<div class="page-header">
+  <h2>Nuevo producto</h2>
+</div>
+
+<%= form_for([@fabrica, @fabrica.productos.build], :html => { :class => "form-horizontal"}) do |f| %>
+  <div class="control-group">
+    <%= f.label(:nombre, :class=>'control-label') %>
+    <div class="controls">
+      <%= f.text_field :nombre, :class=>'input-xxlarge' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label(:descripcion, 'Descripción', :class=>'control-label') %>
+    <div class="controls">
+      <%= f.text_area :descripcion, :class=>'input-xxlarge', :rows => '3' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label(:color, :class=>'control-label') %>
+    <div class="controls">
+      <%= f.select(:color, [['Blanco'],['Negro'],['Plomo'],['Verde'],['Amarillo'],['Turqueza'],['Modarado'],['Azul'],['Cafe']]) %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label(:genero, :class=>'control-label') %>
+    <div class="controls">
+      <%= f.select(:genero, [['Masculino'],['Femenino']]) %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label(:talla, :class=>'control-label') %>
+    <div class="controls">
+      <%= f.text_field :talla, :class=>'input-xlarge' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label(:precio_unitario, 'Costo',:class=>'control-label') %>
+    <div class="controls">
+      <%= f.text_field :precio_unitario, :class=>'input-small'%>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label(:precio_mayor, 'Precio de venta al por mayor',:class=>'control-label') %>
+    <div class="controls">
+      <%= f.text_field :precio_mayor, :class=>'input-small'%>
+    </div>
+  </div>  
+  <div class="control-group">
+    <%= f.label(:precio_venta, 'Precio de venta',:class=>'control-label') %>
+    <div class="controls">
+      <%= f.text_field :precio_venta, :class=>'input-small'%>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label(:image, 'Imagen', :class=>'control-label') %>
+    <div class="controls">
+      <%= f.file_field :image %>  
+    </div>
+  </div>
+  <div class="form-actions">
+    <%= f.submit 'Guardar producto', :class=>'btn btn-primary'  %>
+    <%= link_to 'Cancelar', fabricas_path, :class => 'btn' %>
+  </div>
+<% end %>

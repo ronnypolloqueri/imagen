@@ -1,0 +1,59 @@
+<%= form_for(@fabrica, :html => { :class => "form-horizontal"}) do |f| %>
+  <% if @fabrica.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@fabrica.errors.count, "error") %> prohibited this fabrica from being saved:</h2>
+
+      <ul>
+      <% @fabrica.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="control-group">
+    <%= f.label(:ruc, 'RUC', :class=>'control-label') %>
+    <div class="controls">
+      <%= f.text_field :ruc, :class=>'input-large'%>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label(:razon_social, 'Razón social',:class=>'control-label')%>
+    <div class="controls">
+      <%= f.text_field :razon_social, :class=>'input-xxlarge' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :nombre_comercial, :class=>'control-label' %>
+    <div class="controls">
+      <%= f.text_field :nombre_comercial, :class=>'input-xxlarge' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label(:direccion, 'Dirección',:class=>'control-label') %>
+    <div class="controls">    
+      <%= f.text_field :direccion, :class=>'input-xxlarge' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label(:telefono, 'Teléfono',:class=>'control-label') %>
+    <div class="controls">    
+      <%= f.text_field :telefono %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label(:correo_electronico, 'Correo electrónico',:class=>'control-label') %>
+    <div class="controls">
+      <%= f.text_field :correo_electronico %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :representante, :class=>'control-label' %>
+    <div class="controls">
+      <%= f.text_field :representante, :class=>'input-xxlarge' %>
+    </div>
+  </div>
+  <div class="form-actions">
+    <%= f.submit 'Guardar', :class=>'btn btn-primary' %>
+  </div>
+<% end %>

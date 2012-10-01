@@ -1,0 +1,78 @@
+<% if(notice) %>
+<div class="alert alert-success">
+  <%= notice %>
+</div>
+<% end %>
+<% catalogo_id = params[:id] %>
+<% catalogo_id = catalogo_id.to_i %>
+<div class="hero-unit">
+<p>
+  <b>Título catalogo:</b>
+  <%= @catalogo.titulo_catalogo %>
+</p>
+
+<p>
+  <b>Descripción:</b>
+  <%= @catalogo.descripcion %>
+</p>
+
+<p>
+  <b>Fecha elaboración:</b>
+  <%= @catalogo.fecha_elaboracion %>
+</p>
+<div id="acciones">
+<p>
+  <%= link_to 'Editar', edit_catalogo_path(@catalogo), :class => 'btn btn-inverse' %>
+  <%= link_to 'Eliminar', @catalogo, :class => 'btn',:method => :delete, data: { confirm: '¿Está seguro?' } %>
+</p>
+</div>
+</div>
+<div class="page-header">
+  <h2>Productos</h2>
+</div>
+<ul class="pager">
+  <li class="previous">
+    <%= link_to 'Lista de catalogos', catalogos_path, :class => 'btn' %>
+  </li>
+  <li class="next">
+    <%= link_to "Ver catalogo", { :controller => "catalogos", :action => "catalogo", :id => @catalogo.id }, :class => 'btn' %></td>        
+  </li>
+</ul>
+<ul class="thumbnails">
+<% @productos.each do |producto| %>
+  <li class="span6">
+    <div class="thumbnail">
+      <%= image_tag producto.image_url(:thumb).to_s, class:'img-rounded' %>
+      <div class="caption">        
+        <% if(producto.catalogos) %>
+          <% cen = 0 %>
+          <% producto.catalogos.each do |corredor| %>
+            <% if catalogo_id == corredor.id %>
+              <% cen = cen + 1 %>
+            <% end%>
+          <% end %>
+        <% end %>
+        <% if cen == 1 %>
+          <% id_catalogo_producto = 0 %>
+          <% producto.catalogoproductos.each do |encontrar| %>
+            <% if catalogo_id == encontrar.catalogo_id && producto.id == encontrar.producto_id  %>
+              <% id_catalogo_producto = encontrar.id %>
+            <% end %>
+          <% end %>
+        <% end %>
+        <h3><%= producto.nombre %></h3>
+        <p>Código: #<%= producto.id %></p>        
+        <p>Precio S/. <%= producto.precio_venta %></p>
+        <p>Talla: <%= producto.talla %></p>        
+        <p>
+          <% if cen == 1 %>
+            <%= link_to "Quitar", { :controller => "catalogoproductos", :action => "quitar", :id => id_catalogo_producto, :catalogo_id => catalogo_id }, :class => 'btn btn-warning' %>            
+          <% else %>              
+            <%= link_to "Agregar", { :controller => "catalogoproductos", :action => "elaborar_catalogo", :producto_id => producto.id, :catalogo_id => catalogo_id }, :class => 'btn btn-inverse' %>
+          <% end %>
+        </p>
+      </div>
+    </div>
+  </li>
+<% end %>
+</ul>
